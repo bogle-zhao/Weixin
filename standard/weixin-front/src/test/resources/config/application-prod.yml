@@ -1,0 +1,45 @@
+server:
+    port: 8888
+spring:
+    profiles:
+        active: prod
+    datasource:
+        url: jdbc:mysql://localhost:3306/flb_weixin?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf8&useUnicode=true
+        username: root
+        password: ENC(WWHYGfrywiJS1Dw1/AcL3A==)
+        initialSize: 0
+        maxActive: 20
+        minIdle: 0
+        maxWait: 60000
+        validationQuery: select 1 from dual
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 3600000
+        minEvictableIdleTimeMillis: 25200000
+        removeAbandoned: true
+        removeAbandonedTimeout: 1800
+        logAbandoned: true
+        filters: mergeStat
+    jpa:
+        show-sql: false
+    weixin:
+        appId: wx21b7659ce16b13d9
+        appSecret: 096da6c0e64e509a2bedf080c3bd45ef
+        encodingAESKey: X7QUw1x0M0q64ntvFrDn0rEkTwUZeNI9ouVtJgQl091
+        tokenKey: bogle
+    redis:
+        database: 1
+        hostName: localhost
+#        password:
+        port: 6379
+    jedisPool:
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        testOnCreate: true
+bogle:
+    phpHome: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=getLogin&m=bogle
+    phpAutoLogin: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=freeLogin&m=bogle
+    phpCancelLogin: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=cancelFreeLogin&m=bogle
+    serverBind: http://tem.bogle.com/weixin/isBind

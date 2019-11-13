@@ -1,0 +1,48 @@
+server:
+    port: 8888
+spring:
+    profiles:
+        active: dev
+    datasource:
+        url: jdbc:mysql://localhost:3306/flb_weixin?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf8&useUnicode=true
+        username: root
+        password: ENC(WWHYGfrywiJS1Dw1/AcL3A==)
+        initialSize: 0
+        maxActive: 20
+        minIdle: 0
+        maxWait: 60000
+        validationQuery: select 1 from dual
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        timeBetweenEvictionRunsMillis: 3600000
+        minEvictableIdleTimeMillis: 25200000
+        removeAbandoned: true
+        removeAbandonedTimeout: 1800
+        logAbandoned: true
+        filters: mergeStat
+    jpa:
+        show-sql: true
+    weixin:
+        appId: wxc2fe74bcfdf7913d
+        appSecret: 2e3fab60f24077fd36503a171f9cab20
+        encodingAESKey: Z8WAPsLJR9b46e92yFPwJFny6pc79TSsPIfwrUZlhuu
+        tokenKey: bogle
+    redis:
+        database: 1
+        hostName: localhost
+        port: 6379
+    jedisPool:
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        testOnCreate: true
+bogle:
+    #免登录授权成功调用php接口跳转到php
+    phpHome: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=getLogin&m=bogle
+    #开启免登录接口页面
+    phpAutoLogin: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=freeLogin&m=bogle
+    #取消免登录接口页面
+    phpCancelLogin: http://teweixin.bogle.com/?boglecore_c=User&boglecore_a=cancelFreeLogin&m=bogle
+    #后台服务，检查是否开启免登录，如果开启免登录，返回可取消获取免登录进入页面，如未开启免登录返回开启免登录提示文字
+    serverBind: http://tem.bogle.com/weixin/isBind

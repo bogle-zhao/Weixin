@@ -1,0 +1,19 @@
+server:
+    port: 8888
+spring:
+    profiles:
+        active: dev
+    weixin:
+        appId: wxc2fe74bcfdf7913d
+        appSecret: 2e3fab60f24077fd36503a171f9cab20
+        encodingAESKey: Z8WAPsLJR9b46e92yFPwJFny6pc79TSsPIfwrUZlhuu
+        tokenKey: bogle
+    redis:
+        database: 1
+        hostName: localhost
+        port: 6379
+    jedisPool:
+        testOnBorrow: true
+        testOnReturn: false
+        testWhileIdle: true
+        testOnCreate: true
